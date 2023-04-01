@@ -1,0 +1,46 @@
+---
+import { getCollection } from "astro:content";
+import { vars } from "@js/vars";
+import Layout from "@layouts/Layout.astro"
+const allPosts = await getCollection("Bill-W");
+---
+
+<Layout
+ title="Лучшие статьи Билл У."
+ desc="Лучшие статьи Билла У – это сборник статей, издававшихся в журнале АА «Грейпвайн» в разное время."
+ poster="posters/poster-bill.png"
+>
+ <div class={vars.container}>
+  <h3 class="mb-[20px] font-bold text-[32px] leading-[110%]">Лучшие статьи Билл У. 🗞</h3>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts.map((post) => (
+     <article class="bg-white p-[15px] rounded-[15px]">
+      <img src={"../../" + post.data.img} alt="Билл У." class="mb-[10px] rounded-[15px]" />
+      <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">
+       🪶 {post.data.title}
+      </h2>
+      <p class="font-light mb-[14px] leading-[130%] ">{post.data.desc}</p>
+      <a
+       href={"/aa/Bill-W/" + post.slug}
+       class="text-white bg-sky-400 hover:bg-sky-500 rounded-[8px] py-[4px] px-[12px]"
+      >
+       Читать
+      </a>
+     </article>
+    ))
+   }
+  </div>
+ </div>
+ <style>
+  p {
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+  }
+ </style>
+</Layout>

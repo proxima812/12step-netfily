@@ -1,0 +1,76 @@
+---
+import {
+ POSTER,
+ THEME_COLOR,
+ TITLE_SITE,
+ VERIFICATION_GOOGLE,
+ VERIFICATION_YANDEX,
+ WEB_APP_TITLE,
+} from "../consts";
+
+export interface Props {
+ title: string;
+ desc?: string;
+ poster: string;
+}
+const title = Astro.props.title || TITLE_SITE;
+const { desc, poster } = Astro.props;
+---
+
+<meta charset="utf-8" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="application-name" content={WEB_APP_TITLE} />
+<meta name="apple-mobile-web-app-title" content={WEB_APP_TITLE} />
+<meta name="theme-color" content={THEME_COLOR} />
+<meta name="msapplication-navbutton-color" content={THEME_COLOR} />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="msapplication-starturl" content="/" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<meta name="generator" content={Astro.generator} />
+
+<link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
+<link
+ rel="apple-touch-icon"
+ type="image/png"
+ sizes="167x167"
+ href="/icons/icon-167x167.png"
+/>
+<link
+ rel="apple-touch-icon"
+ type="image/png"
+ sizes="180x180"
+ href="/icons/icon-180x180.png"
+/>
+
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={Astro.url} />
+
+<meta name="yandex-verification" content={VERIFICATION_YANDEX} />
+<meta name="google-site-verification" content={VERIFICATION_GOOGLE} />
+
+<meta name="title" content={title} />
+<meta name="description" content={desc} />
+
+<meta property="og:type" content="article" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:site_name" content={title} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={desc} />
+<meta property="og:image" content={Astro.site + poster || Astro.site + POSTER} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={desc} />
+<meta property="twitter:image" content={Astro.site + poster || Astro.site + POSTER} />
+
+
+<title>{title}</title>

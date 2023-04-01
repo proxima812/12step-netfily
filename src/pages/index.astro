@@ -1,81 +1,53 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "@layouts/Layout.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import Banner from "../components/Banner.astro";
+import PopularEjik from "../components/Popular-ejik.astro";
+import "../css/global.css";
+
+export interface Props {
+ link: string;
+ bg: string;
+ name: string;
+ community: string;
+ type: string;
+ count: string;
+}
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+<Layout title="Материалы об 12 шагов" desc="Материалы, семинары и много полезного про 12 шагов и духовных принципов." poster="posters/poster.png">
+ <div class="max-w-[880px] mx-auto px-[20px]">
+  <Banner />
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+  <PopularEjik />
+
+  <h3 class="mb-[40px] text-[18px] font-medium" id="ejiks">🚀 Материал для изучения</h3>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+   <ArticleCard
+    link={"/aa/dzho-i-charli"}
+    bg={"bg-[conic-gradient(at_left,_var(--tw-gradient-stops))] from-pink-500 via-red-500 to-yellow-500"}
+    name={"Джо и Чарли - изучение БКАА"}
+    community={"АА"}
+    type={"Семинар"}
+    count={"102"}
+   />
+   <ArticleCard
+    link={"/aa/luchshie-stati-billa-w"}
+    bg={"bg-[radial-gradient(ellipse_at_bottom_right,_var(--tw-gradient-stops))] from-rose-400 via-fuchsia-500 to-indigo-500"}
+    name={"Лучшие статьи Билла У."}
+    community={"АА"}
+    type={"Статьи"}
+    count={"6"}
+   />
+   <ArticleCard
+    link={"/aa/molodezh-aa"}
+    bg={"bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-yellow-300 via-green-300 to-green-500"}
+    name={"Молодежь в АА"}
+    community={"АА"}
+    type={"Истории"}
+    count={"12"}
+   />
+  </div>
+ </div>
+</Layout>

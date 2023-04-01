@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+
+:root {
+ --color: #040212;
+ --body-size-font: 16px;
+ --body-size-weight: 400;
+ --body-bg: #f7f7f7;
+ --main-font: "Rubik";
+}
+
+*,
+*:after,
+*:before {
+ padding: 0;
+ margin: 0;
+ border: 0;
+ box-sizing: border-box;
+}
+
+a {
+ text-decoration: none;
+ user-select: none;
+}
+
+ul:where(body),
+ol:where(body),
+li:where(body) {
+ list-style: none;
+}
+
+img {
+ vertical-align: top;
+}
+
+p {
+ hyphens: auto;
+}
+u {
+ text-decoration-skip: auto;
+}
+
+q {
+ quotes: "«" "»";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+ font-weight: inherit;
+ font-size: inherit;
+}
+
+html,
+body {
+ min-width: 320px;
+ font-family: var(--main-font), sans-serif;
+ color: var(--color);
+ font-size: var(--body-size-font);
+ font-weight: var(--body-size-weight);
+ background-color: var(--body-bg);
+ scroll-behavior: smooth;
+}
+
+._content {
+ margin-top: 40px;
+ padding-right: 20px;
+ padding-left: 20px;
+ max-width: 980px;
+ margin-left: auto;
+ margin-right: auto;
+}
+
+@media (max-width: 336px) {
+ ._content {
+  padding-left: 0;
+  padding-right: 0;
+ }
+}
+
+._content ol,
+._content ul {
+ list-style-type: disc;
+ margin-left: 15px;
+ margin-bottom: 16px;
+}
+
+/*TODO FONT-SIZE - 18PX*/
+._content p,
+._content ol li,
+._content ul li {
+ font-size: 18px;
+ font-weight: 400;
+}
+
+/*TODO MARGIN-BOTTOM - 8PX*/
+._content h1,
+._content h2,
+._content ol li,
+._content ul li {
+ margin-bottom: 8px;
+}
+
+/*TODO MARGIN-BOTTOM - 16PX*/
+._content p,
+._content img {
+ margin-bottom: 16px;
+}
+
+._content h1 {
+ font-size: 32px;
+ font-weight: 700;
+ color: #090642;
+ line-height: 110%;
+}
+
+._content h2 {
+ font-size: 22px;
+ font-weight: 500;
+ color: #434b57;
+ line-height: 120%;
+}
+
+._content p {
+ line-height: 150%;
+}
+
+blockquote {
+ border-left: 6px solid #bfe2ff;
+ font-size: 16px;
+ font-style: italic;
+ margin: 16px;
+ padding: 16px 24px;
+ position: relative;
+}
+blockquote:before {
+ content: "";
+ position: absolute;
+ top: 50%;
+ left: -6px;
+ height: 40px;
+ background-color: var(--body-bg);
+ width: 6px;
+ margin-top: -1em;
+}
+blockquote:after {
+ content: "”";
+ position: absolute;
+ top: 50%;
+ left: -20px;
+ color: #337ab7;
+ font-size: 50px;
+ font-family: Times, sans-serif;
+ font-weight: bold;
+ line-height: 30px;
+}
+blockquote cite {
+ font-style: normal;
+ color: #3c82f6;
+ font-size: 15px;
+ padding-top: 10px;
+ display: block;
+ text-align: right;
+}
+
+/* TODO REACT COMPONETNS*/
+
+.hover-up {
+ transition: transform 0.2s linear;
+}
+.hover-up:hover {
+ transform: translateY(-5px);
+ transition: transform 0.2s linear;
+}

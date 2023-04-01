@@ -1,0 +1,132 @@
+---
+import { vars } from "@js/vars";
+---
+
+<div class="mb-[20px]">
+ <div class={vars.container}>
+  <div class="mb-[20px]">
+   <span
+    id="open-menu"
+    class="inline-flex font-medium items-center text-[16px] px-[8px] py-[4px] bg-white rounded-[8px] lg:hidden"
+   >
+    <svg
+     class="mr-[4px]"
+     width="16"
+     height="11"
+     viewBox="0 0 16 11"
+     fill="none"
+     xmlns="http://www.w3.org/2000/svg"
+    >
+     <path
+      d="M0.888889 10.6667C0.637037 10.6667 0.426074 10.5813 0.256 10.4107C0.0853334 10.2406 0 10.0296 0 9.77778C0 9.52593 0.0853334 9.31496 0.256 9.14489C0.426074 8.97422 0.637037 8.88889 0.888889 8.88889H15.1111C15.363 8.88889 15.5739 8.97422 15.744 9.14489C15.9147 9.31496 16 9.52593 16 9.77778C16 10.0296 15.9147 10.2406 15.744 10.4107C15.5739 10.5813 15.363 10.6667 15.1111 10.6667H0.888889ZM0.888889 6.22222C0.637037 6.22222 0.426074 6.13689 0.256 5.96622C0.0853334 5.79615 0 5.58519 0 5.33333C0 5.08148 0.0853334 4.87022 0.256 4.69956C0.426074 4.52948 0.637037 4.44444 0.888889 4.44444H15.1111C15.363 4.44444 15.5739 4.52948 15.744 4.69956C15.9147 4.87022 16 5.08148 16 5.33333C16 5.58519 15.9147 5.79615 15.744 5.96622C15.5739 6.13689 15.363 6.22222 15.1111 6.22222H0.888889ZM0.888889 1.77778C0.637037 1.77778 0.426074 1.69274 0.256 1.52267C0.0853334 1.352 0 1.14074 0 0.888889C0 0.637037 0.0853334 0.425778 0.256 0.255111C0.426074 0.0850372 0.637037 0 0.888889 0H15.1111C15.363 0 15.5739 0.0850372 15.744 0.255111C15.9147 0.425778 16 0.637037 16 0.888889C16 1.14074 15.9147 1.352 15.744 1.52267C15.5739 1.69274 15.363 1.77778 15.1111 1.77778H0.888889Z"
+      fill="black"></path>
+    </svg>
+    Меню</span
+   >
+  </div>
+  <nav id="menu" class="hidden flex lg:flex flex-wrap gap-[20px]">
+   {
+    Astro.url.pathname === "/aa/dzho-i-charli" ? (
+     <div class="all-list">
+      <a href="/">🏠 Домой</a>
+     </div>
+    ) : (
+       <div class="all-list">
+        <a href="/aa/dzho-i-charli">🔙 Назад</a>
+       </div>
+      ) && Astro.url.pathname === "/aa/luchshie-stati-billa-w" ? (
+     <div class="all-list">
+      <a href="/">🏠 Домой</a>
+     </div>
+    ) : (
+       <div class="all-list">
+        <a href="/aa/luchshie-stati-billa-w">🔙 Назад</a>
+       </div>
+      ) && Astro.url.pathname === "/aa/molodezh-aa" ? (
+     <div class="all-list">
+      <a href="/">🏠 Домой</a>
+     </div>
+    ) : (
+     <div class="all-list">
+      <a href="/aa/molodezh-aa">🔙 Назад</a>
+     </div>
+    )
+   }
+   <!-- 
+   {
+    Astro.url.pathname === "/aa/Bill-W" ? null : (
+     <div class="all-list">
+      <a href="/aa/Bill-W">Назад</a>
+     </div>
+    )
+   } -->
+
+   <div class="all-list">
+    <span class="flex items-center"
+     >📖 Материал
+     <svg
+      class="ml-[6px]"
+      width="9"
+      height="6"
+      viewBox="0 0 9 6"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+     >
+      <path
+       d="M1.0575 0L4.5 3.435L7.9425 0L9 1.0575L4.5 5.5575L0 1.0575L1.0575 0Z"
+       fill="black"></path>
+     </svg></span
+    >
+    <div class="list-hidden">
+     <a href="/aa/luchshie-stati-billa-w">Лучшие статьи Билл У.</a>
+     <a href="/aa/molodezh-aa">Молодежь АА</a>
+     <a href="/aa/dzho-i-charli">Изучение БКАА с Джо и Чарли</a>
+    </div>
+   </div>
+  </nav>
+ </div>
+</div>
+<script lang="js">
+ const menu = document.querySelector("#menu");
+ const menu_open = document.querySelector("#open-menu");
+ const isHidden = false;
+
+ if (!isHidden) {
+  menu_open.addEventListener("click", () => {
+   menu.classList.toggle("hidden");
+  });
+ }
+</script>
+<style>
+ .all-list {
+  position: relative;
+  padding: 12px;
+  background-color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+ }
+ .list-hidden {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  display: none;
+  z-index: 5;
+ }
+ .list-hidden a {
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #ededed;
+  padding: 12px;
+  line-height: 110%;
+  display: block;
+  background-color: #fff;
+  transition: background-color 0.2s linear;
+ }
+ .list-hidden a:hover {
+  transition: background-color 0.2s linear;
+  background-color: #f3f3f3;
+ }
+ .all-list:hover .list-hidden {
+  display: block;
+ }
+</style>

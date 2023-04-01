@@ -8,7 +8,7 @@ export async function get() {
   title: "Изучение БКАА с Джо и Чарли",
   description:
    "На сегодняшний день, материалы Джо и Чарли являются самыми известными и используемыми в мире материалами по Большой книге.",
-  site: "https://12.netlify.app",
+  site: "12step.netlify.app",
   items: posts.map((post) => ({
    title: post.data.title,
    pubDate: post.data.pubDate,

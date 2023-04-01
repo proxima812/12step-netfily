@@ -5,7 +5,7 @@ import compress from "astro-compress";
 import robotsTxt from "astro-robots-txt";
 
 export default defineConfig({
- site: "https://12.netlify.app",
+ site: "https://12step.netlify.app",
  integrations: [
   sitemap(),
   robotsTxt(),

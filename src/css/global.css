@@ -73,11 +73,15 @@ body {
  margin-right: auto;
 }
 
-@media (max-width: 336px) {
+
+@media (max-width: 576px) {
  ._content {
   padding-left: 0;
   padding-right: 0;
  }
+ ._content p {font-size: 17px;}
+ ._content h1 {font-size: 26px;}
+ ._content h2 {font-size: 20px;}
 }
 
 ._content ol,

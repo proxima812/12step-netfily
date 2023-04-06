@@ -1,0 +1,27 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Nav from "../components/Nav.astro";
+import PostHead from "@components/PostHead.astro";
+import ToUp from "@components/ToUp.astro";
+import "@css/global.css";
+import { vars } from "@js/vars";
+
+const { title, desc, poster } = Astro.props;
+---
+
+<html lang="ru">
+ <head>
+  <PostHead title={title} desc={desc} poster={poster} />
+ </head>
+
+ <body>
+  <ToUp />
+  <Header />
+  <Nav />
+   <div class={vars.container}>
+    <slot />
+   </div>
+  <Footer />
+ </body>
+</html>

@@ -1,0 +1,270 @@
+---
+import { getCollection } from "astro:content";
+import {vars} from '@js/vars'
+
+import img_12step from "/posters/img_12step.png";
+import img_agnostic from "/posters/img_agnostic.png";
+import img_alc from "/posters/img_alc.png";
+import img_bill from "/posters/img_bill.png";
+import img_doctor from "/posters/img_doctor.png";
+import img_exit from "/posters/img_exit.png";
+import img_moving from "/posters/img_moving.png";
+import img_pre from "/posters/img_pre.png";
+import img_work from "/posters/img_work.png";
+import Layout from '@layouts/Layout.astro';
+
+const allPosts = await getCollection("dzho-i-charli");
+---
+
+<Layout
+ title="Изучение БКАА с Джо и Чарли"
+ desc="На сегодняшний день, материалы Джо и Чарли являются самыми известными и используемыми в мире материалами по Большой книге."
+ poster="posters/dzho-i-charli.png"
+>
+ <div class={vars.container}>
+  <h3 class="mb-[10px] font-bold text-[32px] leading-[110%]">
+   Изучение БКАА с Джо и Чарли 📖
+  </h3>
+  <p class="mb-[10px]">
+   На сегодняшний день, материалы Джо и Чарли являются самыми известными и используемыми в
+   мире материалами по Большой книге. Эти два алкоголика объездили со своими занятиями по
+   изучению Большой книги все 50 штатов США и многие страны мира, где есть АА.
+  </p>
+  <p class="mb-[20px]">
+   Начиная с 1980 года, когда началось массовое распространение их записей, в Содружестве
+   АА началась тенденция к возвращению к первоначальному пониманию Программы и работе по
+   12 шагам. Было создано большое количество шаговых групп, также появились другие
+   12-шаговые Сообщества, основной целью поставившие выздоровление по 12 шагам и помощь
+   другим.
+  </p>
+  <h2 class="font-bold text-[22px] mb-[20px]" id="pre">📘 Предисловие</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "pre")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_pre} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-blue-400 hover:bg-blue-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="doctor">📕 Мнение доктора</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "doctor")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy"
+        src={img_doctor}
+        alt="Уильям Дункан Силкворт"
+        class="mb-[10px] rounded-[15px]"
+       />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-red-400 hover:bg-red-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="bill">📔 Рассказ Билла</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "bill")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_bill} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-yellow-400 hover:bg-yellow-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="exit">📙 Выход есть</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "exit")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_exit} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-orange-400 hover:bg-orange-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="alc">🍵 Еще об алкоголизме</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "alc")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_alc} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-emerald-400 hover:bg-emerald-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="agnostic">🛕 А как быть агностикам?</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "agnostic")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_agnostic} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-emerald-400 hover:bg-emerald-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="moving">⛏ Программа в действии</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "moving")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_moving} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-cyan-400 hover:bg-cyan-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="work">📗 За работу!</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "work")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_work} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-green-400 hover:bg-green-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+
+  <h2 class="font-bold text-[22px] my-[20px]" id="12step">📖 Работая с другими</h2>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .filter((h) => h.data.head === "12step")
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <article class="bg-white p-[15px] rounded-[15px]">
+       <img loading="lazy" src={img_12step} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
+       <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
+       <a
+        href={"/aa/dzho-i-charli/" + item.slug}
+        class="text-white bg-blue-400 hover:bg-blue-500 rounded-[8px] py-[4px] px-[12px]"
+       >
+        Изучить
+       </a>
+      </article>
+     ))
+   }
+  </div>
+ </div>
+ <style></style>
+</Layout>

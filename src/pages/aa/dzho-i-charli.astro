@@ -1,7 +1,8 @@
 ---
+import { vars } from "@js/vars";
 import { getCollection } from "astro:content";
-import {vars} from '@js/vars'
 
+import Layout from "@layouts/Layout.astro";
 import img_12step from "/posters/img_12step.png";
 import img_agnostic from "/posters/img_agnostic.png";
 import img_alc from "/posters/img_alc.png";
@@ -11,7 +12,6 @@ import img_exit from "/posters/img_exit.png";
 import img_moving from "/posters/img_moving.png";
 import img_pre from "/posters/img_pre.png";
 import img_work from "/posters/img_work.png";
-import Layout from '@layouts/Layout.astro';
 
 const allPosts = await getCollection("dzho-i-charli");
 ---
@@ -48,7 +48,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_pre} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_pre}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a
@@ -73,7 +78,8 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy"
+       <img
+        loading="lazy"
         src={img_doctor}
         alt="Уильям Дункан Силкворт"
         class="mb-[10px] rounded-[15px]"
@@ -102,7 +108,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_bill} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_bill}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a
@@ -127,7 +138,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_exit} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_exit}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a
@@ -152,7 +168,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_alc} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_alc}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a
@@ -177,7 +198,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_agnostic} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_agnostic}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a
@@ -202,7 +228,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_moving} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_moving}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a
@@ -227,7 +258,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_work} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_work}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a
@@ -252,7 +288,12 @@ const allPosts = await getCollection("dzho-i-charli");
      .sort((a, b) => a.id.length - b.id.length)
      .map((item) => (
       <article class="bg-white p-[15px] rounded-[15px]">
-       <img loading="lazy" src={img_12step} alt="БКАА Предесловие" class="mb-[10px] rounded-[15px]" />
+       <img
+        loading="lazy"
+        src={img_12step}
+        alt="БКАА Предесловие"
+        class="mb-[10px] rounded-[15px]"
+       />
        <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">{item.data.title}</h2>
        <p class="font-light mb-[14px] leading-[130%]">{item.data.desc}</p>
        <a

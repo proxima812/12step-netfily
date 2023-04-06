@@ -26,40 +26,18 @@ import { vars } from "@js/vars";
   </div>
   <nav id="menu" class="hidden flex lg:flex flex-wrap gap-[20px]">
    {
-    Astro.url.pathname === "/aa/dzho-i-charli" ? (
-     <div class="all-list">
-      <a href="/">🏠 Домой</a>
-     </div>
-    ) : (
-       <div class="all-list">
-        <a href="/aa/dzho-i-charli">🔙 Назад</a>
-       </div>
-      ) && Astro.url.pathname === "/aa/luchshie-stati-billa-w" ? (
-     <div class="all-list">
-      <a href="/">🏠 Домой</a>
-     </div>
-    ) : (
-       <div class="all-list">
-        <a href="/aa/luchshie-stati-billa-w">🔙 Назад</a>
-       </div>
-      ) && Astro.url.pathname === "/aa/molodezh-aa" ? (
+    Astro.url.pathname === "/aa/dzho-i-charli" ||
+    Astro.url.pathname === "/aa/molodezh-aa" ||
+    Astro.url.pathname === "/aa/luchshie-stati-billa-w" ? (
      <div class="all-list">
       <a href="/">🏠 Домой</a>
      </div>
     ) : (
      <div class="all-list">
-      <a href="/aa/molodezh-aa">🔙 Назад</a>
+      <button onclick="back()">🔙 Назад</button>
      </div>
     )
    }
-   <!-- 
-   {
-    Astro.url.pathname === "/aa/Bill-W" ? null : (
-     <div class="all-list">
-      <a href="/aa/Bill-W">Назад</a>
-     </div>
-    )
-   } -->
 
    <div class="all-list">
     <span class="flex items-center"
@@ -96,6 +74,7 @@ import { vars } from "@js/vars";
    menu.classList.toggle("hidden");
   });
  }
+ const back = () => window.history.back();
 </script>
 <style>
  .all-list {

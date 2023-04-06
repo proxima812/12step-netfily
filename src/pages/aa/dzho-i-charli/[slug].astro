@@ -143,7 +143,7 @@ const active =
   </div>
 
   {
-   post.slug === "9" ||
+   post.slug === "11" ||
    post.slug === "19" ||
    post.slug === "29" ||
    post.slug === "38" ||
@@ -155,7 +155,7 @@ const active =
     <>
      <hr class="bg-[#aaa] h-[1px] mt-[40px] mb-[20px]" />
      <div class="flex flex-wrap gap-[20px]">
-      {post.slug === "9" ? (
+      {post.slug === "11" ? (
        <a href="/aa/dzho-i-charli/#pre" class={active}>
         📘 Предисловие
        </a>
@@ -164,6 +164,7 @@ const active =
         📘 Предисловие
        </a>
       )}
+
       {post.slug === "19" ? (
        <a href="/aa/dzho-i-charli/#doctor" class={active}>
         📕 Мнение доктора
@@ -185,21 +186,21 @@ const active =
       )}
 
       {post.slug === "38" ? (
-       <a href="/aa/dzho-i-charli/#bill" class={active}>
+       <a href="/aa/dzho-i-charli/#exit" class={active}>
         📙 Выход есть
        </a>
       ) : (
-       <a href="/aa/dzho-i-charli/#bill" class={link_to_post}>
+       <a href="/aa/dzho-i-charli/#exit" class={link_to_post}>
         📙 Выход есть
        </a>
       )}
 
       {post.slug === "44" ? (
-       <a href="/aa/dzho-i-charli/#bill" class={active}>
+       <a href="/aa/dzho-i-charli/#alc" class={active}>
         🍵 Еще об алкоголизме
        </a>
       ) : (
-       <a href="/aa/dzho-i-charli/#bill" class={link_to_post}>
+       <a href="/aa/dzho-i-charli/#alc" class={link_to_post}>
         🍵 Еще об алкоголизме
        </a>
       )}

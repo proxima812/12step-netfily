@@ -19,8 +19,13 @@ const { desc, poster } = Astro.props;
 
 <meta charset="utf-8" />
 
-<link rel="manifest" href="manifest.json" />
+<link rel="manifest" href="manifest.webmanifest" />
 <link rel="yandex-tableau-widget" href="/manifest.ya.json" />
+
+<meta http-equiv="cache-control" content="cache" />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
 
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +38,7 @@ const { desc, poster } = Astro.props;
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 
 <meta name="generator" content={Astro.generator} />
 
@@ -69,23 +74,5 @@ const { desc, poster } = Astro.props;
 <meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-
-
-<script type="text/javascript" async>
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-   ym(93040664, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
-   });
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/93040664" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-
 
 <title>{title}</title>

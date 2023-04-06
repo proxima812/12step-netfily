@@ -9,12 +9,14 @@ export async function get() {
   description:
    "На сегодняшний день, материалы Джо и Чарли являются самыми известными и используемыми в мире материалами по Большой книге.",
   site: "https://12step.netlify.app",
-  items: posts.map((post) => ({
-   title: post.data.title,
-   pubDate: post.data.pubDate,
-   description: post.data.desc,
-   link: `/aa/dzho-i-charli/${post.slug}/`,
-  })),
+  items: posts
+   .sort((a, b) => a.id.length - b.id.length)
+   .map((post) => ({
+    title: post.data.title,
+    pubDate: post.data.pubDate,
+    description: post.data.desc,
+    link: `/aa/dzho-i-charli/${post.slug}/`,
+   })),
   customData: `<language>ru</language>`,
  });
 }

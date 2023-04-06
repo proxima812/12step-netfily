@@ -21,7 +21,7 @@ const allPosts = await getCollection("young-people");
    {
     allPosts.map((item) => (
      <article class="bg-white p-[15px] rounded-[15px]">
-      <img src={"../../" + item.data.img} alt="Молодежь АА" class="mb-[10px] rounded-[15px]" />
+      <img loading="lazy" src={"../../" + item.data.img} alt="Молодежь АА" class="mb-[10px] rounded-[15px]" />
       <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">
        💫 {item.data.title}
       </h2>

@@ -1,0 +1,20 @@
+---
+const { slug, title, desc, to } = Astro.props;
+---
+
+<a href={"/aa/" + to + "/" + slug} class="hover-up" rel="prefetch">
+ <article class="box-next">
+  <h2 class="text-[22px] font-medium mb-[10px] leading-[120%]">
+   {title}
+  </h2>
+  <p class="font-light leading-[130%]">{desc}</p>
+ </article>
+</a>
+ <style>
+  p {
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+  }
+ </style>

@@ -1,0 +1,84 @@
+---
+const btn_player =
+ "py-[2px] rounded-[5px] px-[10px] hover:bg-slate-200 focus:bg-green-100";
+---
+
+<button
+ id="open-speech"
+ class="lg:hidden inline-block p-[10px] bg-white focus:bg-slate-200 focus: rounded-[10px]"
+ >🎛 Озвучка</button
+>
+
+<div
+ class="hidden inline-flex p-[5px] bg-slate-100 rounded-[5px] lg:inline-flex flex-wrap gap-[5px]"
+ id="spch"
+>
+ <select id="voices" class="hidden" class={btn_player}></select>
+ <button id="start" aria-label="Начать" class={btn_player}>🎤 Озвучить</button>
+ <button id="pause" aria-label="Пауза" class={"text-[22px] " + btn_player}>⏸</button>
+ <button id="resume" aria-label="Продолжить" class={"text-[22px] " + btn_player}
+  >⏩</button
+ >
+ <button id="cancel" aria-label="Закончить" class={"text-[20px] " + btn_player}>❌</button
+ >
+</div>
+
+<script lang="js" is:inline>
+ // Инициализация нового объекта SpeechSynthesisUtterance
+ let speech = new SpeechSynthesisUtterance();
+ speech.lang = "ru-RU";
+ let voices = []; // глобальный массив доступных голосов
+ window.speechSynthesis.onvoiceschanged = () => {
+  // Получение списка голосов
+  const voices = window.speechSynthesis.getVoices();
+
+  // Фильтрация голосов только на русском языке
+  const russianVoices = voices.filter((voice) => voice.lang.includes("ru"));
+
+  // Первоначальная установка первого голоса в массиве
+  speech.voice = russianVoices[0];
+
+  // Установка списка выбора голосов (задаем индекс в качестве значения, который в дальнейшем потребуется при обновлении пользователем голоса посредством меню Select)
+  const voiceSelect = document.querySelector("#voices");
+  russianVoices.forEach(
+   (voice, i) => (voiceSelect.options[i] = new Option(voice.name, i))
+  );
+ };
+ document.querySelector("#voices").addEventListener("change", () => {
+  // При изменении голоса используется значение меню выбора (которое является индексом голоса в глобальном массиве голосов)
+  speech.voice = voices[document.querySelector("#voices").value];
+ });
+
+ document.querySelector("#start").addEventListener("click", () => {
+  // Установка свойства text со значением textarea
+  speech.text = document.querySelector("#spech-content").textContent;
+
+  // Запуск озвучки
+  window.speechSynthesis.speak(speech);
+ });
+
+ document.querySelector("#pause").addEventListener("click", () => {
+  // Приостановка экземпляра speechSynthesis
+  window.speechSynthesis.pause();
+ });
+
+ document.querySelector("#resume").addEventListener("click", () => {
+  // Возобновление приостановленного экземпляра speechSynthesis
+  window.speechSynthesis.resume();
+ });
+
+ document.querySelector("#cancel").addEventListener("click", () => {
+  // Отмена экземпляра speechSynthesis
+  window.speechSynthesis.cancel();
+ });
+</script>
+<script lang="js" is:inline>
+ const spch = document.querySelector("#spch");
+ const speech_open = document.querySelector("#open-speech");
+ const isHidden_spch = false;
+ if (!isHidden_spch) {
+  speech_open.addEventListener("click", () => {
+   spch.classList.toggle("hidden");
+  });
+ }
+</script>

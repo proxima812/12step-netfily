@@ -1,0 +1,49 @@
+---
+import ArticlePost from "@components/ArticlePost.astro";
+import { vars } from "@js/vars";
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const allPosts = await getCollection("skat-li");
+---
+
+<Layout title="" desc="" poster="posters/.png">
+ <div class={vars.container}>
+  <div class="flex flex-col md:flex-row mb-[20px] items-center">
+   <img
+    src="/posters/skat-li.png"
+    class="rounded-[10px] mb-[20px] md:mb-[0px] w-full md:w-[270px] mr-[0px] md:mr-[30px]"
+    alt=""
+   />
+   <div>
+    <h1 class={vars.text_next}>Скат Ли - Сегодня</h1>
+    <p class="mb-[10px]"></p>
+   </div>
+  </div>
+  <div
+   style="display: grid"
+   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
+  >
+   {
+    allPosts
+     .sort((a, b) => a.id.length - b.id.length)
+     .map((item) => (
+      <ArticlePost
+       to={"skat-li"}
+       title={item.data.title}
+       desc={item.data.desc}
+       slug={item.slug}
+      />
+     ))
+   }
+  </div>
+ </div>
+ <style>
+  p {
+   display: -webkit-box;
+   -webkit-line-clamp: 2;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+  }
+ </style>
+</Layout>

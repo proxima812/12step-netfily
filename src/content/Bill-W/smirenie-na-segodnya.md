@@ -4,6 +4,7 @@ desc: "У нас, людей, не бывает абсолютного смир�
 img: "bills/bill_img4.png"
 
 pubDate: 2023-03-06
+id: "5"
 slug: "smirenie-na-segodnya"
 poster: "poster-bill.png"
 ---

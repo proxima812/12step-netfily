@@ -1,27 +1,73 @@
 ---
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
-import Nav from "../components/Nav.astro";
-import PostHead from "@components/PostHead.astro";
+import PostHead from "@components/Main/PostHead.astro";
 import ToUp from "@components/ToUp.astro";
 import "@css/global.css";
 import { vars } from "@js/vars";
+import Footer from "../components/Main/Footer.astro";
 
 const { title, desc, poster } = Astro.props;
 ---
 
 <html lang="ru">
  <head>
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7KY5PK5KRS"
+  ></script>
+  <script is:inline async>
+   window.dataLayer = window.dataLayer || [];
+   function gtag() {
+    dataLayer.push(arguments);
+   }
+   gtag("js", new Date());
+
+   // Отправка события pageview при первой загрузке страницы.
+   gtag("event", "page_view");
+
+   window.addEventListener("pageshow", (event) => {
+    if (event.persisted === true) {
+     // Отправка еще одного события pageview при восстановлении страницы из bfcache.
+     gtag("event", "page_view");
+    }
+   });
+
+   gtag("config", "G-7KY5PK5KRS");
+  </script>
+
+  <script is:inline type="text/javascript" async>
+   (function (m, e, t, r, i, k, a) {
+    m[i] =
+     m[i] ||
+     function () {
+      (m[i].a = m[i].a || []).push(arguments);
+     };
+    m[i].l = 1 * new Date();
+    for (var j = 0; j < document.scripts.length; j++) {
+     if (document.scripts[j].src === r) {
+      return;
+     }
+    }
+    (k = e.createElement(t)),
+     (a = e.getElementsByTagName(t)[0]),
+     (k.async = 1),
+     (k.src = r),
+     a.parentNode.insertBefore(k, a);
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(93040664, "init", {
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
+   });
+  </script>
   <PostHead title={title} desc={desc} poster={poster} />
  </head>
 
  <body>
+  <!-- <DarkTheme /> -->
   <ToUp />
-  <Header />
-  <Nav />
-   <div class={vars.container}>
-    <slot />
-   </div>
+  <div class={vars.container}>
+   <slot />
+  </div>
   <Footer />
  </body>
 </html>

@@ -1,0 +1,20 @@
+---
+import { EMAIL_CONTACT, TELEGRAM_CONTACT } from "../../consts";
+---
+
+<footer class="mt-[30px] md:mt-[60px]">
+ <div class="bg-white  py-[20px]">
+  <div class="px-[20px] flex justify-center items-center">
+   <div class="flex justify-between gap-[30px]">
+    <span>
+     Нашли ошибку? - сообщите, пожалуйста:
+     <a href={"mailto:" + EMAIL_CONTACT + "?subject"} class="underline text-blue-600"
+      >{EMAIL_CONTACT}</a
+     >
+     либо <a class="underline text-blue-600" href={TELEGRAM_CONTACT}>@AA_bill</a>
+    </span>
+   </div>
+  </div>
+ </div>
+
+</footer>

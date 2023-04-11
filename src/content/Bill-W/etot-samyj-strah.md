@@ -4,6 +4,7 @@ desc: "Как говорится в Большой Книге: «Страх – 
 img: "bills/bill_img2.png"
 
 pubDate: 2023-03-04
+id: "4"
 slug: "etot-samyj-strah"
 poster: "poster-bill.png"
 ---

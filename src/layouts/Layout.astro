@@ -1,8 +1,8 @@
 ---
-import BaseHead from "@components/BaseHead.astro";
-import Footer from "@components/Footer.astro";
-import Header from "@components/Header.astro";
-import Nav from "@components/Nav.astro";
+import BaseHead from "@components/Main/BaseHead.astro";
+import Footer from "@components/Main/Footer.astro";
+import Header from "@components/Main/Header.astro";
+import Nav from "@components/Main/Nav.astro";
 import ToUp from "@components/ToUp.astro";
 import "@css/global.css";
 
@@ -11,7 +11,8 @@ const { title, desc, poster } = Astro.props;
 
 <html lang="ru">
  <head>
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7KY5PK5KRS"></script>
+  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7KY5PK5KRS"
+  ></script>
   <script is:inline async>
    window.dataLayer = window.dataLayer || [];
    function gtag() {
@@ -33,23 +34,48 @@ const { title, desc, poster } = Astro.props;
   </script>
 
   <script is:inline type="text/javascript" async>
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();
-   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   (function (m, e, t, r, i, k, a) {
+    m[i] =
+     m[i] ||
+     function () {
+      (m[i].a = m[i].a || []).push(arguments);
+     };
+    m[i].l = 1 * new Date();
+    for (var j = 0; j < document.scripts.length; j++) {
+     if (document.scripts[j].src === r) {
+      return;
+     }
+    }
+    (k = e.createElement(t)),
+     (a = e.getElementsByTagName(t)[0]),
+     (k.async = 1),
+     (k.src = r),
+     a.parentNode.insertBefore(k, a);
+   })(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
    ym(93040664, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true,
-        webvisor:true
+    clickmap: true,
+    trackLinks: true,
+    accurateTrackBounce: true,
+    webvisor: true,
    });
-</script>
+  </script>
+  <script>
+   if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    // если у пользователя установлена темная тема
+    localStorage.setItem("theme", "light"); // сохраняем тему "light" в localStorage
+   }
+
+   if (localStorage.getItem("theme") === "light") {
+    // если в localStorage сохранена тема "light"
+    document.documentElement.setAttribute("data-theme", "light"); // устанавливаем светлую тему
+   }
+  </script>
   <BaseHead title={title} desc={desc} poster={poster} />
  </head>
 
  <body>
+  <!-- <DarkTheme /> -->
   <ToUp />
   <Header />
   {Astro.url.pathname === "/" ? null : <Nav />}

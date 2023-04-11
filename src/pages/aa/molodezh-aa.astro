@@ -1,8 +1,8 @@
 ---
-import { getCollection } from "astro:content";
+import ArticlePost from "@components/ArticlePost.astro";
 import { vars } from "@js/vars";
-import Layout from '@layouts/Layout.astro';
-
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("young-people");
 ---
@@ -13,26 +13,34 @@ const allPosts = await getCollection("young-people");
  poster="posters/poster-young.png"
 >
  <div class={vars.container}>
-  <h3 class="mb-[20px] font-bold text-[32px] leading-[110%]">Моложедь в АА 🔥</h3>
-  <div
-   style="display: grid"
-   class="items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]"
-  >
+  <div class="flex flex-col md:flex-row mb-[20px] items-center">
+   <img
+    src="/posters/poster-young.png"
+    class="rounded-[10px] mb-[20px] md:mb-[0px] w-full md:w-[270px] mr-[0px] md:mr-[30px]"
+    alt=""
+   />
+   <div>
+    <h1 class={vars.text_next}>Моложедь в АА 🔥</h1>
+    <p class="mb-[10px]">
+     Приходя в АА молодыми людьми, мы обнаружили, что нам предстоит столкнуться с общими
+     трудностями. Вначале мы часто чувствуем себя слишком молодыми, чтобы быть
+     алкоголиками.
+    </p>
+    <p class="mb-[10px]">
+     Некоторые из нас пили непродолжительное время, другие не пили крепкие напитки, не
+     шатались пьяными и не забывали, что делали или говорили, когда пили.
+    </p>
+   </div>
+  </div>
+  <div class="grid items-start grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
    {
     allPosts.map((item) => (
-     <article class="bg-white p-[15px] rounded-[15px]">
-      <img loading="lazy" src={"../../" + item.data.img} alt="Молодежь АА" class="mb-[10px] rounded-[15px]" />
-      <h2 class="text-[20px] font-medium mb-[10px] leading-[120%]">
-       💫 {item.data.title}
-      </h2>
-      <p class="font-light mb-[14px] leading-[130%] ">{item.data.desc}</p>
-      <a
-       href={"/aa/young-people/" + item.slug}
-       class="text-white bg-red-400 hover:bg-red-500 rounded-[8px] py-[4px] px-[12px]"
-      >
-       Читать
-      </a>
-     </article>
+     <ArticlePost
+      to={"young-people"}
+      title={item.data.title}
+      desc={item.data.desc}
+      slug={item.slug}
+     />
     ))
    }
   </div>

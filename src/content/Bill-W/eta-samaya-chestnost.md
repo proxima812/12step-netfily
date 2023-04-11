@@ -4,6 +4,7 @@ desc: "Проблема честности затрагивает почти в�
 img: "bills/bill_img3.png"
 
 pubDate: 2023-03-03
+id: "3"
 slug: "eta-samaya-chestnost"
 poster: "poster-bill.png"
 ---

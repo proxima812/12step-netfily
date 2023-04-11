@@ -4,6 +4,7 @@ desc: "Думаю, что многие «старожилы» АА, которы
 img: "bills/bill_img5.png"
 
 pubDate: 2023-03-05
+id: "6"
 slug: "novye-rubezhi-emocional-naya-trezvost"
 poster: "poster-bill.png"
 ---

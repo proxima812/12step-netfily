@@ -1,0 +1,40 @@
+---
+import ArticleCard from "./ArticleCard.astro";
+---
+
+<h4 class="mb-[30px] text-[18px] font-medium" id="ejiks">🚀 Материал для изучения</h4>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-[20px]">
+ <ArticleCard
+  link={"/aa/luchshie-stati-billa-w"}
+  bg={"bg-gradient-to-b from-blue-300 to-blue-500"}
+  name={"Лучшие статьи Билла У."}
+  community={"АА"}
+  type={"Статьи"}
+  count={"6"}
+ />
+ <ArticleCard
+  link={"/aa/dzho-i-charli"}
+  bg={"bg-gradient-to-b from-red-300 to-red-500"}
+  name={"Джо и Чарли - изучение БКАА"}
+  community={"АА"}
+  type={"Семинар"}
+  count={"102"}
+ />
+ <!-- <ArticleCard
+  link={"/aa/skat-li"}
+  bg={"bg-gradient-to-b from-sky-300 to-sky-500"}
+  name={"Скат Ли - Сегодня"}
+  community={"АА"}
+  type={"Рассказы"}
+  count={"82"}
+ /> -->
+ <ArticleCard
+  link={"/aa/molodezh-aa"}
+  bg={"bg-gradient-to-b from-green-300 to-green-500"}
+  name={"Молодежь в АА"}
+  community={"АА"}
+  type={"Истории"}
+  count={"12"}
+ />
+</div>

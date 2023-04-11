@@ -4,6 +4,7 @@ desc: "Один из способов постичь смысл принципа
 img: "bills/bill_img6.png"
 
 pubDate: 2023-03-02
+id: "2"
 slug: "chto-takoe-prinyatie"
 poster: "poster-bill.png"
 ---

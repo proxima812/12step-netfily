@@ -9,3 +9,4 @@ export const VERIFICATION_YANDEX = "db1dc2c0bd419639";
 
 export const EMAIL_CONTACT = "sam-gold-8@ya.ru";
 export const TELEGRAM_CONTACT = "https://t.me/AA_bill";
+

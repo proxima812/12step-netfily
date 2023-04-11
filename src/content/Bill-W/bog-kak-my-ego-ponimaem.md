@@ -4,6 +4,7 @@ desc: "Выражение «Бог, как мы его понимаем» – я
 img: "bills/bill_img.png"
 
 pubDate: 2023-03-01
+id: "1"
 slug: "bog-kak-my-ego-ponimaem"
 poster: "poster-bill.png"
 ---

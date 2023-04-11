@@ -1,0 +1,113 @@
+---
+const chapters = [
+ {
+  settings: {
+   link: "pre",
+   h3: "📘 Предисловие",
+   posts: "11",
+   read: "66",
+   img: "img_pre.png",
+  },
+ },
+ {
+  settings: {
+   link: "doctor",
+   h3: "📕 Мнение доктора",
+   posts: "8",
+   read: "56",
+   img: "img_doctor.png",
+  },
+ },
+ {
+  settings: {
+   link: "bill",
+   h3: "📔 Рассказ Билла",
+   posts: "10",
+   read: "65",
+   img: "img_bill.png",
+  },
+ },
+ {
+  settings: {
+   link: "exit",
+   h3: "📙 Выход есть",
+   posts: "9",
+   read: "51",
+   img: "img_exit.png",
+  },
+ },
+ {
+  settings: {
+   link: "alc",
+   h3: "🍵 Еще об алкоголизме",
+   posts: "6",
+   read: "37",
+   img: "img_alc.png",
+  },
+ },
+ {
+  settings: {
+   link: "agnostic",
+   h3: "🛕 А как быть агностикам?",
+   posts: "7",
+   read: "44",
+   img: "img_agnostic.png",
+  },
+ },
+ {
+  settings: {
+   link: "moving",
+   h3: "⛏ Программа в действии",
+   posts: "26",
+   read: "137",
+   img: "img_moving.png",
+  },
+ },
+ {
+  settings: {
+   link: "work",
+   h3: "📗 За работу!",
+   posts: "21",
+   read: "121",
+   img: "img_work.png",
+  },
+ },
+ {
+  settings: {
+   link: "12step",
+   h3: "📖 Работая с другими",
+   posts: "4",
+   read: "23",
+   img: "img_12step.png",
+  },
+ },
+];
+---
+
+<div
+ class="grid gap-[20px] grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mb-[20px]"
+>
+ {
+  chapters.map((item) => (
+   <a href={"#" + item.settings.link} class="relative hover-up">
+    <div class="absolute w-full h-full bg-black/50 rounded-[10px]">
+     <h3 class="text-white text-[22px] leading-[110%] font-medium pl-[20px] pt-[20px]">
+      {item.settings.h3}
+     </h3>
+    </div>
+    <div class="absolute bottom-[20px] left-[20px] right-[20px] flex justify-between">
+     <span class="text-white">
+      <b>{item.settings.posts}</b> постов
+     </span>
+     <span class="text-white">⌛ {item.settings.read} мин.</span>
+    </div>
+    <img
+     src={"/posters/" + item.settings.img}
+     loading="lazy"
+     alt={item.settings.h3}
+     class="object-cover rounded-[10px]"
+    />
+   </a>
+  ))
+ }
+</div>

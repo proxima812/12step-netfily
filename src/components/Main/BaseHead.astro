@@ -5,7 +5,6 @@ import {
  TITLE_SITE,
  VERIFICATION_GOOGLE,
  VERIFICATION_YANDEX,
- WEB_APP_TITLE,
 } from "../../consts";
 
 export interface Props {
@@ -18,33 +17,23 @@ const { desc, poster } = Astro.props;
 ---
 
 <meta charset="utf-8" />
-
-<link rel="manifest" href="/manifest.webmanifest" />
-<link rel="yandex-tableau-widget" href="/manifest.ya.json" />
-
-<meta http-equiv="cache-control" content="cache" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
 
 <meta name="mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="application-name" content={WEB_APP_TITLE} />
-<meta name="apple-mobile-web-app-title" content={WEB_APP_TITLE} />
 <meta name="theme-color" content={THEME_COLOR} />
-<meta name="msapplication-navbutton-color" content={THEME_COLOR} />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="msapplication-starturl" content="/" />
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 
 <meta name="generator" content={Astro.generator} />
 
-<!-- 32x32 -->
+<link rel="manifest" href="/manifest.webmanifest" />
+<link rel="yandex-tableau-widget" href="/manifest.ya.json" />
+
 <link rel="icon" href="/favicon.ico">
-<!-- 120x120 -->
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link
  rel="apple-touch-icon"

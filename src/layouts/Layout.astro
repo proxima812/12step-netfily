@@ -11,9 +11,9 @@ const { title, desc, poster } = Astro.props;
 
 <html lang="ru">
  <head>
-  <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-7KY5PK5KRS"
+  <script is:inline async type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-7KY5PK5KRS"
   ></script>
-  <script is:inline async>
+  <script is:inline async type="text/partytown">
    window.dataLayer = window.dataLayer || [];
    function gtag() {
     dataLayer.push(arguments);
@@ -33,7 +33,7 @@ const { title, desc, poster } = Astro.props;
    gtag("config", "G-7KY5PK5KRS");
   </script>
 
-  <script is:inline type="text/javascript" async>
+  <script is:inline type="text/partytown" async>
    (function (m, e, t, r, i, k, a) {
     m[i] =
      m[i] ||
@@ -60,7 +60,7 @@ const { title, desc, poster } = Astro.props;
     webvisor: true,
    });
   </script>
-  <script>
+  <!-- <script >
    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
     // если у пользователя установлена темная тема
     localStorage.setItem("theme", "light"); // сохраняем тему "light" в localStorage
@@ -70,7 +70,7 @@ const { title, desc, poster } = Astro.props;
     // если в localStorage сохранена тема "light"
     document.documentElement.setAttribute("data-theme", "light"); // устанавливаем светлую тему
    }
-  </script>
+  </script> -->
   <BaseHead title={title} desc={desc} poster={poster} />
  </head>
 

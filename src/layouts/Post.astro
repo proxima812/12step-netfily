@@ -5,7 +5,7 @@ import "@css/global.css";
 import { vars } from "@js/vars";
 import Footer from "../components/Main/Footer.astro";
 
-const { title, desc, poster } = Astro.props;
+const { title, desc, poster, pubDate } = Astro.props;
 ---
 
 <html lang="ru">
@@ -58,7 +58,7 @@ const { title, desc, poster } = Astro.props;
     webvisor: true,
    });
   </script>
-  <PostHead title={title} desc={desc} poster={poster} />
+  <PostHead title={title} desc={desc} poster={poster} pubDate={pubDate} />
  </head>
 
  <body>

@@ -11,9 +11,10 @@ export interface Props {
  title: string;
  desc: string;
  poster: string;
+ pubDate: string;
 }
 const title = Astro.props.title || TITLE_SITE;
-const { desc, poster } = Astro.props;
+const { desc, poster, pubDate } = Astro.props;
 ---
 
 <meta charset="utf-8" />

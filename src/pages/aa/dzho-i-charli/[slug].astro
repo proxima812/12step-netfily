@@ -1,186 +1,195 @@
 ---
-import SpechPlayer from "@components/SpechPlayer.astro";
-import AsidePost from "@components/sidebars/AsidePost.astro";
-import PrevPosts from "@components/sidebars/PrevPosts.astro";
-import ReadingTime from "@components/sidebars/ReadingTime";
-import Post from "@layouts/Post.astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import SpechPlayer from '@components/SpechPlayer.astro'
+import AsidePost from '@components/sidebars/AsidePost.astro'
+import PrevPosts from '@components/sidebars/PrevPosts.astro'
+import ReadingTime from '@components/sidebars/ReadingTime'
+import Post from '@layouts/Post.astro'
+import { CollectionEntry, getCollection } from 'astro:content'
 
 export async function getStaticPaths() {
- const allPosts = await getCollection("dzho-i-charli");
- const numberOfPosts = allPosts.length;
- return allPosts
-  .sort((a, b) => a.id.length - b.id.length)
-  .map((post, i) => ({
-   params: { slug: post.slug },
-   props: {
-    post,
-    // Previous post
-    prevPost:
-     i + 1 === numberOfPosts // If the current post is the oldest
-      ? { data: "" }
-      : allPosts[i + 1],
-    // Next post
-    nextPost:
-     i === 0 // If the current post is the newest
-      ? { data: "" }
-      : allPosts[i - 1],
-   },
-  }));
+  const allPosts = await getCollection('dzho-i-charli')
+  const numberOfPosts = allPosts.length
+  return allPosts
+    .sort((a, b) => a.id.length - b.id.length)
+    .map((post, i) => ({
+      params: { slug: post.slug },
+      props: {
+        post,
+        // Previous post
+        prevPost:
+          i + 1 === numberOfPosts // If the current post is the oldest
+            ? { data: '' }
+            : allPosts[i + 1],
+        // Next post
+        nextPost:
+          i === 0 // If the current post is the newest
+            ? { data: '' }
+            : allPosts[i - 1],
+      },
+    }))
 }
 interface Props {
- post: CollectionEntry<"dzho-i-charli">;
+  post: CollectionEntry<'dzho-i-charli'>
 }
-const { post } = Astro.props;
-const { title, desc, img } = post.data;
-const { Content } = await post.render();
+const { post } = Astro.props
+const { title, desc, img, pubDate } = post.data
+const { Content } = await post.render()
 
 // следущие посты в посте
-const { prevPost, nextPost } = Astro.props;
+const { prevPost, nextPost } = Astro.props
 
-const link_to_post = "py-[4px] px-[12px] rounded-[8px] bg-white";
+const link_to_post = 'py-[4px] px-[12px] rounded-[8px] bg-white'
 const active =
- "py-[4px] px-[12px] bg-white rounded-[8px] outline outline-[2px] outline-green-300";
+  'py-[4px] px-[12px] bg-white rounded-[8px] outline outline-[2px] outline-green-300'
 ---
 
-<Post title={"Джо и Чарли изучение БКАА - " + title} desc={desc} poster={img}>
- <main class="_content">
-  <audio class="w-full mb-[20px]" controls src={"/speak-djo-charli/" + post.slug + ".mp3"}
-  ></audio>
+<Post
+  title={'Джо и Чарли изучение БКАА - ' + title}
+  desc={desc}
+  poster={img}
+  pubDate={pubDate}
+>
+  <main class="_content">
+    <audio
+      class="w-full mb-[20px]"
+      controls
+      src={'/speak-djo-charli/' + post.slug + '.mp3'}></audio>
 
-  <div
-   title="Панель поста"
-   class="mx-[-20px] mb-[20px] rounded-[10px] flex flex-wrap gap-[10px] justify-center lg:justify-between items-center py-[5px] pl-[10px] pr-[5px] bg-white lg:gap-[5px]"
-  >
-  <a href="/aa/dzho-i-charli/" class="p-[10px] hover:bg-slate-100  rounded-[5px]">🔚 Назад</a>
-   <ReadingTime client:idle />
-   <SpechPlayer />
-  </div>
+    <div
+      title="Панель поста"
+      class="mx-[-20px] mb-[20px] rounded-[10px] flex flex-wrap gap-[10px] justify-center lg:justify-between items-center py-[5px] pl-[10px] pr-[5px] bg-white lg:gap-[5px]"
+    >
+      <a href="/aa/dzho-i-charli/" class="p-[10px] hover:bg-slate-100 rounded-[5px]"
+        >🔚 Назад</a
+      >
+      <ReadingTime client:idle />
+      <SpechPlayer />
+    </div>
 
-  <div id="spech-content">
-   <Content />
-  </div>
+    <div id="spech-content">
+      <Content />
+    </div>
 
-  <AsidePost title={title} />
+    <AsidePost title={title} />
 
-  {
-   post.slug === "11" ||
-   post.slug === "19" ||
-   post.slug === "29" ||
-   post.slug === "38" ||
-   post.slug === "44" ||
-   post.slug === "51" ||
-   post.slug === "77" ||
-   post.slug === "98" ||
-   post.slug === "102" ? (
-    <>
-     <hr class="bg-[#aaa] h-[1px] mt-[40px] mb-[20px]" />
-     <div class="flex flex-wrap gap-[20px]">
-      {post.slug === "11" ? (
-       <a href="/aa/dzho-i-charli/#pre" class={active}>
-        📘 Предисловие
-       </a>
+    {
+      post.slug === '11' ||
+      post.slug === '19' ||
+      post.slug === '29' ||
+      post.slug === '38' ||
+      post.slug === '44' ||
+      post.slug === '51' ||
+      post.slug === '77' ||
+      post.slug === '98' ||
+      post.slug === '102' ? (
+        <>
+          <hr class="bg-[#aaa] h-[1px] mt-[40px] mb-[20px]" />
+          <div class="flex flex-wrap gap-[20px]">
+            {post.slug === '11' ? (
+              <a href="/aa/dzho-i-charli/#pre" class={active}>
+                📘 Предисловие
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#pre" class={link_to_post}>
+                📘 Предисловие
+              </a>
+            )}
+
+            {post.slug === '19' ? (
+              <a href="/aa/dzho-i-charli/#doctor" class={active}>
+                📕 Мнение доктора
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#doctor" class={link_to_post}>
+                📕 Мнение доктора
+              </a>
+            )}
+
+            {post.slug === '29' ? (
+              <a href="/aa/dzho-i-charli/#bill" class={active}>
+                📔 Рассказ Билла
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#bill" class={link_to_post}>
+                📔 Рассказ Билла
+              </a>
+            )}
+
+            {post.slug === '38' ? (
+              <a href="/aa/dzho-i-charli/#exit" class={active}>
+                📙 Выход есть
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#exit" class={link_to_post}>
+                📙 Выход есть
+              </a>
+            )}
+
+            {post.slug === '44' ? (
+              <a href="/aa/dzho-i-charli/#alc" class={active}>
+                🍵 Еще об алкоголизме
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#alc" class={link_to_post}>
+                🍵 Еще об алкоголизме
+              </a>
+            )}
+
+            {post.slug === '51' ? (
+              <a href="/aa/dzho-i-charli/#agnostic" class={active}>
+                🛕 А как быть агностикам?
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#agnostic" class={link_to_post}>
+                🛕 А как быть агностикам?
+              </a>
+            )}
+
+            {post.slug === '77' ? (
+              <a href="/aa/dzho-i-charli/#moving" class={active}>
+                ⛏ Программа в действии
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#moving" class={link_to_post}>
+                ⛏ Программа в действии
+              </a>
+            )}
+
+            {post.slug === '98' ? (
+              <a href="/aa/dzho-i-charli/#work" class={active}>
+                📗 За работу!
+              </a>
+            ) : (
+              <a href="/aa/dzho-i-charli/#work" class={link_to_post}>
+                📗 За работу!
+              </a>
+            )}
+
+            <a href="/aa/dzho-i-charli/#12step" class={link_to_post}>
+              📖 Работая с другими
+            </a>
+          </div>
+        </>
       ) : (
-       <a href="/aa/dzho-i-charli/#pre" class={link_to_post}>
-        📘 Предисловие
-       </a>
-      )}
+        <>
+          <PrevPosts {prevPost} {nextPost} link={'dzho-i-charli'} />
+        </>
+      )
+    }
+    <script lang="js">
+      const audioElement = document.querySelector('audio') // Получаем элемент <audio>
+      const audioUrl = audioElement.getAttribute('src') // Получаем URL-адрес звуковой записи
 
-      {post.slug === "19" ? (
-       <a href="/aa/dzho-i-charli/#doctor" class={active}>
-        📕 Мнение доктора
-       </a>
-      ) : (
-       <a href="/aa/dzho-i-charli/#doctor" class={link_to_post}>
-        📕 Мнение доктора
-       </a>
-      )}
-
-      {post.slug === "29" ? (
-       <a href="/aa/dzho-i-charli/#bill" class={active}>
-        📔 Рассказ Билла
-       </a>
-      ) : (
-       <a href="/aa/dzho-i-charli/#bill" class={link_to_post}>
-        📔 Рассказ Билла
-       </a>
-      )}
-
-      {post.slug === "38" ? (
-       <a href="/aa/dzho-i-charli/#exit" class={active}>
-        📙 Выход есть
-       </a>
-      ) : (
-       <a href="/aa/dzho-i-charli/#exit" class={link_to_post}>
-        📙 Выход есть
-       </a>
-      )}
-
-      {post.slug === "44" ? (
-       <a href="/aa/dzho-i-charli/#alc" class={active}>
-        🍵 Еще об алкоголизме
-       </a>
-      ) : (
-       <a href="/aa/dzho-i-charli/#alc" class={link_to_post}>
-        🍵 Еще об алкоголизме
-       </a>
-      )}
-
-      {post.slug === "51" ? (
-       <a href="/aa/dzho-i-charli/#agnostic" class={active}>
-        🛕 А как быть агностикам?
-       </a>
-      ) : (
-       <a href="/aa/dzho-i-charli/#agnostic" class={link_to_post}>
-        🛕 А как быть агностикам?
-       </a>
-      )}
-
-      {post.slug === "77" ? (
-       <a href="/aa/dzho-i-charli/#moving" class={active}>
-        ⛏ Программа в действии
-       </a>
-      ) : (
-       <a href="/aa/dzho-i-charli/#moving" class={link_to_post}>
-        ⛏ Программа в действии
-       </a>
-      )}
-
-      {post.slug === "98" ? (
-       <a href="/aa/dzho-i-charli/#work" class={active}>
-        📗 За работу!
-       </a>
-      ) : (
-       <a href="/aa/dzho-i-charli/#work" class={link_to_post}>
-        📗 За работу!
-       </a>
-      )}
-
-      <a href="/aa/dzho-i-charli/#12step" class={link_to_post}>
-       📖 Работая с другими
-      </a>
-     </div>
-    </>
-   ) : (
-    <>
-     <PrevPosts {prevPost} {nextPost} link={"dzho-i-charli"} />
-    </>
-   )
-  }
-  <script lang="js">
-   const audioElement = document.querySelector("audio"); // Получаем элемент <audio>
-   const audioUrl = audioElement.getAttribute("src"); // Получаем URL-адрес звуковой записи
-
-   fetch(audioUrl)
-    .then((response) => {
-     if (!response.ok) {
-      // Если ответ не был получен успешно
-      audioElement.remove(); // Удаляем элемент <audio>
-     }
-    })
-    .catch((error) => {
-     audioElement.remove(); // Удаляем элемент <audio>
-    });
-  </script>
- </main>
+      fetch(audioUrl)
+        .then((response) => {
+          if (!response.ok) {
+            // Если ответ не был получен успешно
+            audioElement.remove() // Удаляем элемент <audio>
+          }
+        })
+        .catch((error) => {
+          audioElement.remove() // Удаляем элемент <audio>
+        })
+    </script>
+  </main>
 </Post>

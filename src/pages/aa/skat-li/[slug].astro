@@ -41,11 +41,14 @@ const { prevPost, nextPost } = Astro.props;
 
 <Post title={title} desc={desc} poster={img}>
  <main class="_content">
-   <div
+  <div
    title="Панель поста"
-   class="mx-[-20px] mb-[20px] rounded-[10px] flex flex-wrap gap-[10px] justify-center lg:justify-between items-center py-[5px] pl-[10px] pr-[5px] bg-white dark:bg-[#050a1c] lg:gap-[5px]"
+   class="mx-[-20px] mb-[20px] rounded-[10px] flex flex-wrap gap-[10px] justify-center lg:justify-between items-center py-[5px] pl-[10px] pr-[5px] bg-white lg:gap-[5px]"
   >
-  <a href="/aa/skat-li/" class="p-[10px] hover:bg-slate-100 dark:hover:bg-[#0f1a42] rounded-[5px]">🔚 Назад</a>
+   <a
+    href="/aa/skat-li/"
+    class="p-[10px] hover:bg-slate-100 rounded-[5px]">🔚 Назад</a
+   >
    <ReadingTime client:idle />
    <SpechPlayer />
   </div>

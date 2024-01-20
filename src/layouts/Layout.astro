@@ -6,7 +6,7 @@ import Nav from "@components/Main/Nav.astro";
 import ToUp from "@components/ToUp.astro";
 import "@css/global.css";
 
-const { title, desc, poster } = Astro.props;
+const { title, desc, poster, pubDate } = Astro.props;
 ---
 
 <html lang="ru">
@@ -71,7 +71,7 @@ const { title, desc, poster } = Astro.props;
     document.documentElement.setAttribute("data-theme", "light"); // устанавливаем светлую тему
    }
   </script> -->
-  <BaseHead title={title} desc={desc} poster={poster} />
+  <BaseHead title={title} desc={desc} poster={poster} pubDate={pubDate}/>
  </head>
 
  <body>
